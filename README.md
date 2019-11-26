@@ -39,20 +39,20 @@ gcc main.o tool.o -o main
 //并且生成了一个可执行文件main
 ```
 说明：  
-> -o指定可执行文件的名称。
-> clear: 标签，不会生成”clean"文件，这样的target称为“伪目标”，伪目标的名称不能喝文件名重复。clean一般放在文件最后。
-> .PHONY: 显示地指明clean是一个“伪目标”。  
+> -o指定可执行文件的名称。  
+> clear: 标签，不会生成”clean"文件，这样的target称为“伪目标”，伪目标的名称不能喝文件名重复。clean一般放在文件最后。  
+> .PHONY: 显示地指明clean是一个“伪目标”。    
 
 实操：  
 ![image](https://github.com/tianyalu/NeMakefile/blob/master/show/make_file_command.png)  
 
 ### 1.4 makefile工作原理
 默认情况下，输入make命令后：  
-> make会在当前目录下找名字叫“Makefile” 或 “makefile” 的文件。
-> 如果找到，它会找文件中第一个目标文件（target），并把这个target作为最终的目标文件，如前面示例中的 “main”。
-> 如果 main 文件不存在，或 main 所依赖的 .o 文件的修改时间要比main文件要新，那么它会执行后面所定义的命令来生成main文件。
-> 如果 main 文件所依赖的 .o 文件也存在，那么make会在当前文件中找目标为 .o 文件的依赖性，若找到则根据规则生成 .o 文件。
-> make 再用 .o 文件声明make的终极任务，也就是执行文件 “main” 。
+> make会在当前目录下找名字叫“Makefile” 或 “makefile” 的文件。  
+> 如果找到，它会找文件中第一个目标文件（target），并把这个target作为最终的目标文件，如前面示例中的 “main”。  
+> 如果 main 文件不存在，或 main 所依赖的 .o 文件的修改时间要比main文件要新，那么它会执行后面所定义的命令来生成main文件。  
+> 如果 main 文件所依赖的 .o 文件也存在，那么make会在当前文件中找目标为 .o 文件的依赖性，若找到则根据规则生成 .o 文件。  
+> make 再用 .o 文件声明make的终极任务，也就是执行文件 “main” 。  
 
 ### 1.5 make工作流程
 GUN的make工作时的执行步骤如下：
