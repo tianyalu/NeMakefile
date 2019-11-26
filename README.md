@@ -67,8 +67,8 @@ GUN的make工作时的执行步骤如下：
 
 ## 二、语法
 ### 2.1 makefile中使用变量
-> 为了 Makefile 的易维护，在Makefile中我们可以使用变量。Makefile中的变量就是一个字符串，理解为C语言中的宏可能会更好。
-> 比如，声明一个变量：objects, 随后，就可以在Makefile中方便地以 “$(objects)” 的方式使用这个变量了。
+> 为了 Makefile 的易维护，在Makefile中我们可以使用变量。Makefile中的变量就是一个字符串，理解为C语言中的宏可能会更好。  
+> 比如，声明一个变量：objects, 随后，就可以在Makefile中方便地以 “$(objects)” 的方式使用这个变量了。  
 ```c++
 objects = main.o tool.o
 
