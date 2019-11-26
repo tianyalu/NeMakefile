@@ -2,19 +2,19 @@
 
 ## 一、概念
 ### 1.1 makefile
-> makefile 定义了一系列的规则来指定哪些文件需要先编译，哪些文件需要重新编译，如何进行链接等操作。
+> makefile 定义了一系列的规则来指定哪些文件需要先编译，哪些文件需要重新编译，如何进行链接等操作。  
 > makefile 就是“自动化编译”，告诉make命令如何编译和链接。
 
 ### 1.2 makefile组成
-> 显示规则：说明如何生成一个或多个目标文件；
-> 隐晦规则：makefile自动推导；
-> 变量定义：当makefile执行时，变量会被扩展到相应的引用位置上； 
-> 文件指示: include；指定编译有效部分；编译多行命令
+> 显示规则：说明如何生成一个或多个目标文件；  
+> 隐晦规则：makefile自动推导；  
+> 变量定义：当makefile执行时，变量会被扩展到相应的引用位置上；   
+> 文件指示: include；指定编译有效部分；编译多行命令  
 > 注释：行注释-> #    \#
 
 ### 1.3 makefile的规则
-> target: 目标文件，可以使Object File,也可以是执行文件，还可以是标签（Lable)；
-> prerequisites: 依赖文件，即要生成那个target所需要的文件或其它target；
+> target: 目标文件，可以使Object File,也可以是执行文件，还可以是标签（Lable)；  
+> prerequisites: 依赖文件，即要生成那个target所需要的文件或其它target；  
 > command：make要执行的命令；
 ```c++
 target ... : prerequisites ...
@@ -41,9 +41,10 @@ gcc main.o tool.o -o main
 说明：  
 > -o指定可执行文件的名称。
 > clear: 标签，不会生成”clean"文件，这样的target称为“伪目标”，伪目标的名称不能喝文件名重复。clean一般放在文件最后。
-> .PHONY: 显示地指明clean是一个“伪目标”。
+> .PHONY: 显示地指明clean是一个“伪目标”。  
+
 实操：  
-![image](https://github.com/tianyalu/Makefile/blob/master/show/make_file_command.png)  
+![image](https://github.com/tianyalu/NeMakefile/blob/master/show/make_file_command.png)  
 
 ### 1.4 makefile工作原理
 默认情况下，输入make命令后：  
@@ -55,14 +56,14 @@ gcc main.o tool.o -o main
 
 ### 1.5 make工作流程
 GUN的make工作时的执行步骤如下：
-> 1.读入所有的Makefile。
-> 2.读入被include的其它Makefile。
-> 3.初始化文件中的变量。
-> 4.推导隐晦规则，并分析所有规则。
-> 5.为所有的目标文件创建依赖关系链。
+> 1.读入所有的Makefile。  
+> 2.读入被include的其它Makefile。  
+> 3.初始化文件中的变量。  
+> 4.推导隐晦规则，并分析所有规则。  
+> 5.为所有的目标文件创建依赖关系链。  
 
-> 6.根据依赖关系，决定哪些目标要重新生成。
-> 7.执行生成命令。
+> 6.根据依赖关系，决定哪些目标要重新生成。  
+> 7.执行生成命令。  
 
 ## 二、语法
 ### 2.1 makefile中使用变量
@@ -84,10 +85,10 @@ cc -c -o tool.o tool.c
 gcc main.o tool.o -o main
 ```
 实操：  
-![image](https://github.com/tianyalu/Makefile/blob/master/show/make_file_variable.png)  
+![image](https://github.com/tianyalu/NeMakefile/blob/master/show/make_file_variable.png)  
 
 ### 2.2 引用其它的Makefile
-> 使用include关键字可以把其它的Makefile包含进来，include语法格式： include <filename>
+> 使用include关键字可以把其它的Makefile包含进来，include语法格式： `include <filename>`
 ```c++
 # 语法格式
 include <filename>
@@ -139,7 +140,7 @@ $(call FUNC)
 
 ```
 实操：  
-![image](https://github.com/tianyalu/Makefile/blob/master/show/make_file_fun_noparam.png)  
+![image](https://github.com/tianyalu/NeMakefile/blob/master/show/make_file_fun_noparam.png)  
 
 * 带参数
 ```c++
@@ -152,5 +153,5 @@ $(call FUNC1,hello,world)
 输出： hello world
 ```
 实操：  
-![image](https://github.com/tianyalu/Makefile/blob/master/show/make_file_fun_param.png)  
+![image](https://github.com/tianyalu/NeMakefile/blob/master/show/make_file_fun_param.png)  
 
